@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Lora', Georgia, serif;
+    --font-news: 'Newsreader', Georgia, serif;
+    --font-masthead: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-memorial: 'Playfair Display', 'EB Garamond', Georgia, serif;
+  }
+
+  body {
+    color: #111827;
+    background-color: #fcfaf7;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark body {
+    color: #f5f5f4;
+    background-color: #0c0a09;
+  }
+
+  input, textarea, select {
+    color: #0c0a09;
+  }
+
+  .dark input, .dark textarea, .dark select {
+    color: #f5f5f4;
+  }
+}
+
+/* Bulletproof text readability in both Light Mode and Dark Mode */
+.bg-white,
+.bg-stone-50,
+.bg-stone-100 {
+  color: #1c1917;
+}
+
+/* High-contrast dark mode rules: prevents black text on dark background and white on white */
+.dark body {
+  background-color: #0c0a09 !important;
+  color: #f5f5f4 !important;
+}
+
+.dark .bg-white {
+  background-color: #1c1917 !important;
+  color: #f5f5f4 !important;
+  border-color: #2e2a27 !important;
+}
+
+.dark .bg-\[\#fcfaf7\],
+.dark .bg-\[\#fbf9f5\],
+.dark .bg-\[\#f4f1ea\],
+.dark .bg-\[\#f4f0e6\],
+.dark .bg-stone-50,
+.dark .bg-stone-100 {
+  background-color: #141210 !important;
+  color: #f5f5f4 !important;
+  border-color: #292524 !important;
+}
+
+.dark .bg-stone-200 {
+  background-color: #292524 !important;
+  color: #f5f5f4 !important;
+}
+
+.dark .text-stone-950,
+.dark .text-stone-900,
+.dark .text-stone-850,
+.dark .text-stone-800,
+.dark .text-stone-700,
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-black {
+  color: #f5f5f4 !important;
+}
+
+.dark .text-stone-600,
+.dark .text-stone-500,
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  color: #d6d3d1 !important;
+}
+
+.dark .text-stone-400 {
+  color: #a8a29e !important;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1c1917 !important;
+  color: #f5f5f4 !important;
+  border-color: #44403c !important;
+}
+
+.font-memorial {
+  font-family: var(--font-memorial);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.font-serif-body {
+  font-family: var(--font-news);
+}
+
+.font-headline {
+  font-family: var(--font-serif);
+}
+
+.font-masthead {
+  font-family: var(--font-masthead);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+/* Data saver mode styles */
+.data-saver img {
+  filter: contrast(0.95);
+}
+
+.data-saver .banner-ad-visual {
+  display: none !important;
+}
+
+/* Newspaper column layout */
+.newspaper-cols {
+  column-count: 1;
+  column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .newspaper-cols-2 {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+/* Print view optimization */
+@media print {
+  header, nav, .no-print, button, .ad-banner {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
